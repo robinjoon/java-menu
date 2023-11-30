@@ -2,6 +2,7 @@ package menu.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,9 @@ class Coach {
 
     private void setHateMenus(String name, String[] hateMenus) {
         List<String> hateMenuNames = Arrays.asList(hateMenus);
+        if (hateMenuIsEmpty(name, hateMenuNames)) {
+            return;
+        }
         validateHateMenusNotContainBlankAndOther(hateMenuNames);
         this.name = name;
         Map<MenuType, List<Menu>> menuBoard = MenuGenerator.menuBoard();
@@ -26,6 +30,15 @@ class Coach {
                 .toList();
         validateHateMenusNotContainInvalidMenu(hateMenusInMenuBoard, hateMenus);
         this.hateMenus = hateMenusInMenuBoard;
+    }
+
+    private boolean hateMenuIsEmpty(String name, List<String> hateMenuNames) {
+        if (hateMenuNames.isEmpty() || (hateMenuNames.size() == 1 && hateMenuNames.get(0).isBlank())) {
+            this.name = name;
+            this.hateMenus = Collections.emptyList();
+            return true;
+        }
+        return false;
     }
 
     private static void validateHateMenusNotContainBlankAndOther(List<String> hateMenuNames) {
