@@ -3,11 +3,14 @@ package menu;
 import static menu.CommonErrorMessage.errorFlag;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Validate {
     public static void validateCoachName(String input) {
         validateNameLength(input);
         validateCoachCount(input);
+        validateRedundant(input);
     }
 
     private static void validateNameLength(String input) {
@@ -25,8 +28,17 @@ public class Validate {
         }
     }
 
+    private static void validateRedundant(String input){
+        String[] arr = input.split(",");
+        Set<String> set = new HashSet<>(Arrays.asList(arr));
+        if(arr.length != set.size()){
+            throw new IllegalArgumentException(errorFlag + "중복된 글자가 있습니다.");
+        }
+    }
+
     public static void validatePickyEating(String input) {
         validatePickyCount(input);
+        validateRedundant(input);
     }
 
     private static void validatePickyCount(String input){
