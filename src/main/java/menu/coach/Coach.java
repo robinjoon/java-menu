@@ -14,15 +14,22 @@ public class Coach {
 
     public Coach(String name, String... hateMenus) {
         validateHateMenuCount(hateMenus);
-        List<String> menuList = Arrays.asList(hateMenus);
+        List<String> hateMenuNames = Arrays.asList(hateMenus);
+        validateHateMenusNotContainBlankAndOther(hateMenuNames);
         this.name = name;
         Map<MenuType, List<Menu>> menuBoard = MenuGenerator.menuBoard();
         List<Menu> collect = menuBoard.values().stream()
                 .flatMap(Collection::stream)
-                .filter(menu -> menuList.contains(menu.getName()))
+                .filter(menu -> hateMenuNames.contains(menu.getName()))
                 .toList();
         validateHateMenusNotContainInvalidMenu(collect, hateMenus);
         this.hateMenus = collect;
+    }
+
+    private static void validateHateMenusNotContainBlankAndOther(List<String> hateMenuNames) {
+        if ((hateMenuNames.contains("") || hateMenuNames.contains(" ")) && hateMenuNames.size() > 1) {
+            throw new IllegalArgumentException("[ERROR] 못 먹는 메뉴 입력에 공백과 메뉴가 동시에 포함될 수 없습니다.");
+        }
     }
 
     private static void validateHateMenusNotContainInvalidMenu(List<Menu> collect, String[] hateMenus) {
