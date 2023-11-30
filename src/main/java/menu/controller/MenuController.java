@@ -35,7 +35,7 @@ public class MenuController {
             dislikeMenus.put(name, dislike);
         }
         recommendation.start(coaches);
-//        outputView.printMenuRecommendation();
+        outputView.printResult(recommendation);
         System.out.println("추천을 완료했습니다");
     }
 }

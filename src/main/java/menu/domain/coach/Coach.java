@@ -12,6 +12,10 @@ public class Coach {
         this.dislikeMenus = dislikeMenus;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public boolean isDislike(Menu menu) {
         return dislikeMenus.contains(menu);
     }

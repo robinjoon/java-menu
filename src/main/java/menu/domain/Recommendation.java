@@ -7,13 +7,15 @@ import java.util.Map;
 import menu.domain.coach.Coach;
 
 public class Recommendation {
+    List<Category> categories;
     Map<Category, Integer> categoryCount;
-    Map<Coach, List<Menu>> recommendedMenu;
+    Map<String, List<Menu>> recommendedMenu;
 
     public void start(List<Coach> coaches) {
-        initRecommendedMenu(coaches);
+        init(coaches);
         for (int i = 0; i < 5; i++) {
             Category category = selectCategory();
+            categories.add(category);
             for(Coach coach : coaches) {
                 Menu menu = selectMenu(coach, category);
                 if(recommendedMenu.get(coach).contains(menu)) {
@@ -53,9 +55,18 @@ public class Recommendation {
         return menu;
     }
 
-    private void initRecommendedMenu(List<Coach> coaches) {
+    private void init(List<Coach> coaches) {
+        categories = new ArrayList<>();
         coaches.forEach(coach -> {
-            recommendedMenu.put(coach, new ArrayList<>());
+            recommendedMenu.put(coach.getName(), new ArrayList<>());
         });
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public Map<String, List<Menu>> getRecommendedMenu() {
+        return recommendedMenu;
     }
 }
