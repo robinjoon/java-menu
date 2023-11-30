@@ -7,8 +7,8 @@ import java.util.Set;
 import menu.util.StringSplitter;
 
 public class Coaches {
-    private List<Coach> coaches;
-    private List<String> coachNames;
+    private final List<Coach> coaches;
+    private final List<String> coachNames;
 
     public Coaches(String coachNames) {
         StringSplitter<String> coachNameSplitter = new StringSplitter<>(",");
