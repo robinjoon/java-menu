@@ -4,7 +4,7 @@ public class Menu {
     private final MenuType type;
     private final String name;
 
-    public Menu(MenuType type, String name) {
+    Menu(MenuType type, String name) {
         this.type = type;
         this.name = name;
     }
