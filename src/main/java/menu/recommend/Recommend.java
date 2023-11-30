@@ -36,7 +36,11 @@ public class Recommend {
         }
     }
 
-    public void selectMenu(Coach coach) {
+    public void selectMenu() {
+        recommendMenus.keySet().forEach(this::selectMenu);
+    }
+
+    private void selectMenu(Coach coach) {
         MenuType menuType = menuTypes.get(menuTypes.size() - 1);
         Map<MenuType, List<Menu>> menuBoard = MenuGenerator.menuBoard();
         List<String> menus = menuBoard.get(menuType).stream().map(Menu::getName).collect(Collectors.toList());
@@ -44,7 +48,7 @@ public class Recommend {
         List<String> preSelectedMenus = recommendMenus.get(coach).stream().map(Menu::getName)
                 .collect(Collectors.toList());
         String selectedMenuName = Randoms.shuffle(menus).get(0);
-        while (preSelectedMenus.contains(selectedMenuName)) {
+        while (preSelectedMenus.contains(selectedMenuName) || hateMenus.contains(selectedMenuName)) {
             selectedMenuName = Randoms.shuffle(menus).get(0);
         }
         String finalSelectedMenuName = selectedMenuName;
