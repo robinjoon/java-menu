@@ -1,4 +1,4 @@
-package menu.domain;
+package menu.domain.coach;
 
 import static menu.constants.ErrorMessage.CONTAINS_WHITESPACE;
 import static menu.constants.ErrorMessage.INVALID_COACH_NAME_LENGTH;
@@ -10,27 +10,27 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Coach {
+public class CoachNames {
     private final List<String> names;
     private static final String WHITESPACE_REGEX = "\\s";
 
-    public Coach(List<String> names) {
+    public CoachNames(List<String> names) {
         this.names = names;
         validate(names);
     }
 
     private void validate(List<String> names) {
         validateSize(names);
-        for(String name : names) {
+        for (String name : names) {
             validateEach(name);
         }
     }
 
     private void validateSize(List<String> names) {
-        if(names.size() < 2) {
+        if (names.size() < 2) {
             throw new IllegalArgumentException(formatErrorWithRetry(INVALID_COACH_NAME_MINIMUM_SIZE));
         }
-        if(names.size() > 5) {
+        if (names.size() > 5) {
             throw new IllegalArgumentException(formatErrorWithRetry(INVALID_COACH_NAME_MAXIMUM_SIZE));
         }
     }
@@ -53,8 +53,13 @@ public class Coach {
     }
 
     private void validateLength(String name) {
-        if(name.length() < 2 || name.length() > 4) {
+        if (name.length() < 2 || name.length() > 4) {
             throw new IllegalArgumentException(formatErrorWithRetry(INVALID_COACH_NAME_LENGTH));
         }
     }
+
+    public List<String> getNames() {
+        return names;
+    }
 }
+
