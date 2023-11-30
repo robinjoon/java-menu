@@ -40,4 +40,12 @@ class CoachTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 코치이름은 2글자 이상 4글자 이하여야 합니다.");
     }
+
+    @DisplayName("코치 이름 공백 포함")
+    @Test
+    void coachNameWithBlank() {
+        Assertions.assertThatThrownBy(() -> new Coach("a ", "쌈밥"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 코치이름은 공백이 포함될 수 없습니다.");
+    }
 }
