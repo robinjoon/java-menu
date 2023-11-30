@@ -20,12 +20,12 @@ class Coach {
         validateHateMenusNotContainBlankAndOther(hateMenuNames);
         this.name = name;
         Map<MenuType, List<Menu>> menuBoard = MenuGenerator.menuBoard();
-        List<Menu> collect = menuBoard.values().stream()
+        List<Menu> hateMenusInMenuBoard = menuBoard.values().stream()
                 .flatMap(Collection::stream)
                 .filter(menu -> hateMenuNames.contains(menu.getName()))
                 .toList();
-        validateHateMenusNotContainInvalidMenu(collect, hateMenus);
-        this.hateMenus = collect;
+        validateHateMenusNotContainInvalidMenu(hateMenusInMenuBoard, hateMenus);
+        this.hateMenus = hateMenusInMenuBoard;
     }
 
     private static void validateHateMenusNotContainBlankAndOther(List<String> hateMenuNames) {
