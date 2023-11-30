@@ -29,7 +29,6 @@ public class Week {
     }
 
     public List<Menu> getCategories() {
-        getInstance();
         return this.Categories;
     }
     private String getCategoryOfDay(){
