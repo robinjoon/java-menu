@@ -1,4 +1,4 @@
-package menu.menu;
+package menu.domain.menu;
 
 public class Menu {
     private final MenuType type;

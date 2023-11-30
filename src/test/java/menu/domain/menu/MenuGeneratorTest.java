@@ -1,4 +1,4 @@
-package menu.menu;
+package menu.domain.menu;
 
 import java.util.List;
 import java.util.Map;

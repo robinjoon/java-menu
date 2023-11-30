@@ -2,11 +2,11 @@ package menu;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import menu.coach.Coaches;
+import menu.domain.coach.Coaches;
+import menu.domain.recommend.Recommend;
+import menu.domain.recommend.RecommendDTO;
 import menu.input.InputManager;
 import menu.output.OutputManger;
-import menu.recommend.Recommend;
-import menu.recommend.RecommendDTO;
 import menu.util.RetryHelper;
 
 public class Application {

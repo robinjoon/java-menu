@@ -1,4 +1,4 @@
-package menu.menu;
+package menu.domain.menu;
 
 public enum MenuType {
     JAPANESE("일식", 1),

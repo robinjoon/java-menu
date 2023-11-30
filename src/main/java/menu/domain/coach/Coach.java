@@ -1,12 +1,12 @@
-package menu.coach;
+package menu.domain.coach;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import menu.menu.Menu;
-import menu.menu.MenuGenerator;
-import menu.menu.MenuType;
+import menu.domain.menu.Menu;
+import menu.domain.menu.MenuGenerator;
+import menu.domain.menu.MenuType;
 
 public class Coach {
     private String name;

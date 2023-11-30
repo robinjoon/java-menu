@@ -1,4 +1,4 @@
-package menu.recommend;
+package menu.domain.recommend;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import menu.coach.Coach;
-import menu.coach.Coaches;
-import menu.menu.Menu;
-import menu.menu.MenuGenerator;
-import menu.menu.MenuType;
+import menu.domain.coach.Coach;
+import menu.domain.coach.Coaches;
+import menu.domain.menu.Menu;
+import menu.domain.menu.MenuGenerator;
+import menu.domain.menu.MenuType;
 
 public class Recommend {
     private final List<MenuType> menuTypes;

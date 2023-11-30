@@ -1,4 +1,4 @@
-package menu.coach;
+package menu.domain.coach;
 
 import java.util.ArrayList;
 import java.util.HashSet;
