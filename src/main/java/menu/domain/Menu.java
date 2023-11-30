@@ -1,6 +1,6 @@
-package menu.model;
+package menu.domain;
 
-import static menu.model.Category.*;
+import static menu.domain.Category.*;
 
 import java.util.Arrays;
 
