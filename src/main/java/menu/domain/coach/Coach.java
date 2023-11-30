@@ -12,7 +12,7 @@ public class Coach {
     private String name;
     private List<Menu> hateMenus;
 
-    public Coach(String name, String... hateMenus) {
+    Coach(String name, String... hateMenus) {
         validateName(name);
         validateHateMenuCount(hateMenus);
         setHateMenus(name, hateMenus);
