@@ -5,7 +5,6 @@ import camp.nextstep.edu.missionutils.Console;
 import static menu.OutputView.*;
 import static menu.Message.*;
 
-import java.util.List;
 
 import static menu.InputValidator.*;
 
@@ -13,7 +12,9 @@ public class InputView {
 
     public static String[] inputCoachNames() {
         printMessage(INPUT_COACH_PROMPT);
-        String rawInput = Console.readLine();
+        String rawInput = Console.readLine().trim();
+        System.lineSeparator();
+
         String[] coachNames = rawInput.split(",");
         try {
             coachNameSizeValidator(coachNames);
@@ -25,7 +26,8 @@ public class InputView {
 
     public static String[] inputCannotEatMenus(String name) {
         printMessage(String.format(INPUT_CANT_EATABLE_MENU, name));
-        String rawInput = Console.readLine();
+        String rawInput = Console.readLine().trim();
+        System.lineSeparator();
         return rawInput.split(",");
     }
 }
