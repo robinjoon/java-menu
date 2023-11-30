@@ -2,9 +2,9 @@ package menu;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
-import menu.domain.coach.Coaches;
-import menu.domain.recommend.Recommend;
-import menu.domain.recommend.RecommendDTO;
+import menu.domain.Coaches;
+import menu.domain.Recommend;
+import menu.domain.RecommendDTO;
 import menu.input.InputManager;
 import menu.output.OutputManger;
 import menu.util.RetryHelper;

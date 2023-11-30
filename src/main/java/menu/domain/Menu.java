@@ -1,6 +1,6 @@
-package menu.domain.menu;
+package menu.domain;
 
-public class Menu {
+class Menu {
     private final MenuType type;
     private final String name;
 
@@ -9,7 +9,7 @@ public class Menu {
         this.name = name;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 

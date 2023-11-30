@@ -1,11 +1,8 @@
-package menu.domain.recommend;
+package menu.domain;
 
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import menu.domain.coach.Coach;
-import menu.domain.menu.Menu;
-import menu.domain.menu.MenuType;
 
 public class RecommendDTO {
     private final List<String> menuTypes;

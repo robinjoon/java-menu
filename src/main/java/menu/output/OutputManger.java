@@ -2,7 +2,7 @@ package menu.output;
 
 import java.util.List;
 import java.util.Map;
-import menu.domain.recommend.RecommendDTO;
+import menu.domain.RecommendDTO;
 
 public class OutputManger {
     public static void startGuide() {

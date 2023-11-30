@@ -1,16 +1,16 @@
-package menu.domain.menu;
+package menu.domain;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import menu.util.StringSplitter;
 
-public final class MenuGenerator {
+final class MenuGenerator {
     private MenuGenerator() {
 
     }
 
-    public static Map<MenuType, List<Menu>> menuBoard() {
+    static Map<MenuType, List<Menu>> menuBoard() {
         Map<MenuType, List<Menu>> result = new HashMap<>();
         String japanese = "규동, 우동, 미소시루, 스시, 가츠동, 오니기리, 하이라이스, 라멘, 오코노미야끼";
         String korean = "김밥, 김치찌개, 쌈밥, 된장찌개, 비빔밥, 칼국수, 불고기, 떡볶이, 제육볶음";
@@ -26,7 +26,7 @@ public final class MenuGenerator {
         return result;
     }
 
-    public static List<Menu> makeMenus(StringSplitter<Menu> menuStringSplitter, String menus, MenuType menuType) {
+    static List<Menu> makeMenus(StringSplitter<Menu> menuStringSplitter, String menus, MenuType menuType) {
         return menuStringSplitter.split(menus, s -> {
             String menuName = s.trim();
             return new Menu(menuType, menuName);

@@ -1,4 +1,4 @@
-package menu.domain.coach;
+package menu.domain;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

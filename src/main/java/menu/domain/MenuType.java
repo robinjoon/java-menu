@@ -1,6 +1,6 @@
-package menu.domain.menu;
+package menu.domain;
 
-public enum MenuType {
+enum MenuType {
     JAPANESE("일식", 1),
     KOREAN("한식", 2),
     CHINESE("중식", 3),
@@ -14,11 +14,11 @@ public enum MenuType {
         this.code = code;
     }
 
-    public int getCode() {
+    int getCode() {
         return code;
     }
 
-    public String getDisplayName() {
+    String getDisplayName() {
         return displayName;
     }
 }

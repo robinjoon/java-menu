@@ -1,14 +1,11 @@
-package menu.domain.coach;
+package menu.domain;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import menu.domain.menu.Menu;
-import menu.domain.menu.MenuGenerator;
-import menu.domain.menu.MenuType;
 
-public class Coach {
+class Coach {
     private String name;
     private List<Menu> hateMenus;
 
@@ -66,11 +63,11 @@ public class Coach {
         }
     }
 
-    public List<Menu> getHateMenus() {
+    List<Menu> getHateMenus() {
         return hateMenus;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 }
