@@ -27,4 +27,8 @@ public class DislikeMenus {
     public void add(Menu menu) {
         dislikeMenus.add(menu);
     }
+
+    public boolean contains(Menu menu) {
+        return dislikeMenus.contains(menu);
+    }
 }

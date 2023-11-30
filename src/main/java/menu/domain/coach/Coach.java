@@ -11,4 +11,8 @@ public class Coach {
         this.name = name;
         this.dislikeMenus = dislikeMenus;
     }
+
+    public boolean isDislike(Menu menu) {
+        return dislikeMenus.contains(menu);
+    }
 }

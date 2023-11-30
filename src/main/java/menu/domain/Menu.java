@@ -3,6 +3,8 @@ package menu.domain;
 import static menu.domain.Category.*;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public enum Menu {
     GYUDON("규동", JAPANESE),
@@ -69,6 +71,13 @@ public enum Menu {
                 .filter(menu -> menu.getName().equals(menuName))
                 .findFirst()
                 .orElseThrow(IllegalArgumentException::new);
+    }
+
+    public static List<String> getMenuNamesByCategory(Category category) {
+        return Arrays.stream(Menu.values())
+                .filter(menu -> menu.getCategory() == category)
+                .map(Menu::getName)
+                .collect(Collectors.toList());
     }
 
     public String getName() {
