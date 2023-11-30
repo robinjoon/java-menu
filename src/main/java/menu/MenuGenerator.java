@@ -32,7 +32,17 @@ public class MenuGenerator {
     }
 
     private static List<Integer> generateCategoryNumber() {
-        return Randoms.pickUniqueNumbersInRange(1, 5, 5);
+        List<Integer> randomCategories = new ArrayList<>();
+        int i = 0;
+        while (randomCategories.size() < 5) {
+            Integer categoryNumber = Randoms.pickNumberInRange(1, 5);
+            if (randomCategories.contains(categoryNumber)) {
+                continue;
+            }
+            randomCategories.add(categoryNumber);
+            i++;
+        }
+        return randomCategories;
     }
 
     private static String generateDailyMenu(List<String> menus) {
