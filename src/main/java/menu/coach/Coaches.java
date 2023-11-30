@@ -12,8 +12,15 @@ public class Coaches {
 
     public Coaches(String coachNames) {
         StringSplitter<String> coachNameSplitter = new StringSplitter<>(",");
-        List<String> split = coachNameSplitter.split(coachNames, s -> s);
-        validateDuplicateCoachNames(split);
+        List<String> seperatedCoachNames = coachNameSplitter.split(coachNames, s -> s);
+        validateDuplicateCoachNames(seperatedCoachNames);
+        validateCoachCount(seperatedCoachNames);
+    }
+
+    private static void validateCoachCount(List<String> split) {
+        if (split.size() < 2 || split.size() > 5) {
+            throw new IllegalArgumentException("[ERROR] 코치는 최소 2명, 최대 5명 입력할 수 있습니다.");
+        }
     }
 
     private static void validateDuplicateCoachNames(List<String> split) {
