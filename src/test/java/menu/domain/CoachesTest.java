@@ -23,4 +23,13 @@ class CoachesTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 코치는 최소 2명, 최대 5명 입력할 수 있습니다.");
     }
+
+    @DisplayName("연속된 구분자")
+    @ParameterizedTest
+    @ValueSource(strings = {"aa,,bb"})
+    void continuitySeparator(String coachNames) {
+        Assertions.assertThatThrownBy(() -> new Coaches(coachNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 구분자를 연속해서 입력할 수 없습니다.");
+    }
 }

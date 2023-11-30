@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import menu.util.PredicateWithExceptionMessage;
 import menu.util.StringSplitter;
 
 public class Coaches {
@@ -12,6 +13,9 @@ public class Coaches {
 
     public Coaches(String coachNames) {
         StringSplitter<String> coachNameSplitter = new StringSplitter<>(",");
+        PredicateWithExceptionMessage<String> continuitySeparatorDenied = new PredicateWithExceptionMessage<>(
+                s -> !s.contains(",,"), "[ERROR] 구분자를 연속해서 입력할 수 없습니다.");
+        coachNameSplitter.addBeforeSplitCondition(continuitySeparatorDenied);
         List<String> seperatedCoachNames = coachNameSplitter.split(coachNames, s -> s);
         validateDuplicateCoachNames(seperatedCoachNames);
         validateCoachCount(seperatedCoachNames);
