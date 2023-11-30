@@ -69,4 +69,8 @@ public class Coach {
     public List<Menu> getHateMenus() {
         return hateMenus;
     }
+
+    public String getName() {
+        return name;
+    }
 }

@@ -3,7 +3,7 @@ package menu.recommend;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -19,7 +19,7 @@ public class Recommend {
 
     public Recommend(Coaches coaches) {
         this.menuTypes = new ArrayList<>();
-        this.recommendMenus = new HashMap<>();
+        this.recommendMenus = new LinkedHashMap<>();
         for (Coach coach : coaches.getCoaches()) {
             recommendMenus.put(coach, new ArrayList<>());
         }
@@ -34,6 +34,7 @@ public class Recommend {
         if (beforeSelectedCount > 2) {
             throw new RuntimeException("다른 카테고리 설정 필요");
         }
+        menuTypes.add(selectedMenuType);
     }
 
     public void selectMenu() {
@@ -56,5 +57,13 @@ public class Recommend {
                 .filter(menu -> menu.getName().equals(finalSelectedMenuName))
                 .findFirst().orElseThrow();
         recommendMenus.get(coach).add(selectedMenu);
+    }
+
+    List<MenuType> getMenuTypes() {
+        return menuTypes;
+    }
+
+    Map<Coach, List<Menu>> getRecommendMenus() {
+        return recommendMenus;
     }
 }

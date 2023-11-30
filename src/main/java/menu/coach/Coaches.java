@@ -1,5 +1,6 @@
 package menu.coach;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -7,12 +8,15 @@ import menu.util.StringSplitter;
 
 public class Coaches {
     private List<Coach> coaches;
+    private List<String> coachNames;
 
     public Coaches(String coachNames) {
         StringSplitter<String> coachNameSplitter = new StringSplitter<>(",");
         List<String> seperatedCoachNames = coachNameSplitter.split(coachNames, s -> s);
         validateDuplicateCoachNames(seperatedCoachNames);
         validateCoachCount(seperatedCoachNames);
+        this.coachNames = seperatedCoachNames;
+        coaches = new ArrayList<>();
     }
 
     private static void validateCoachCount(List<String> split) {
@@ -34,5 +38,9 @@ public class Coaches {
 
     public void addHateMenus(String coachName, String hateMenus) {
         coaches.add(new Coach(coachName, hateMenus));
+    }
+
+    public List<String> getCoachNames() {
+        return coachNames;
     }
 }
