@@ -1,5 +1,7 @@
 package menu.domain;
 
+import static menu.domain.ExceptionMessage.DUPLICATE_MENU_TYPE;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +21,7 @@ class RecommendTest {
 
         Assertions.assertThatThrownBy(() -> recommend.selectNextMenuType(1))
                 .isInstanceOf(RuntimeException.class)
-                .hasMessageContaining("다른 카테고리 설정 필요");
+                .hasMessageContaining(DUPLICATE_MENU_TYPE);
     }
 
     @DisplayName("못 먹는 음식이 추천되지 않는지 확인")

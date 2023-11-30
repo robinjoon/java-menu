@@ -1,5 +1,9 @@
 package menu.domain;
 
+import static menu.domain.ExceptionMessage.CONTINUITY_SEPARATOR;
+import static menu.domain.ExceptionMessage.DUPLICATE_COACH_NAME;
+import static menu.domain.ExceptionMessage.INVALID_COACH_COUNT;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,7 +16,7 @@ class CoachesTest {
     void invalidCoachNameLength(String coachNames) {
         Assertions.assertThatThrownBy(() -> new Coaches(coachNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 코치이름은 중복될 수 없습니다.");
+                .hasMessageContaining(DUPLICATE_COACH_NAME);
     }
 
     @DisplayName("코치 인원 2 미만 혹은 5 초과")
@@ -21,7 +25,7 @@ class CoachesTest {
     void invalidCoachNameCount(String coachNames) {
         Assertions.assertThatThrownBy(() -> new Coaches(coachNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 코치는 최소 2명, 최대 5명 입력할 수 있습니다.");
+                .hasMessageContaining(INVALID_COACH_COUNT);
     }
 
     @DisplayName("연속된 구분자")
@@ -30,6 +34,6 @@ class CoachesTest {
     void continuitySeparator(String coachNames) {
         Assertions.assertThatThrownBy(() -> new Coaches(coachNames))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessageContaining("[ERROR] 구분자를 연속해서 입력할 수 없습니다.");
+                .hasMessageContaining(CONTINUITY_SEPARATOR);
     }
 }

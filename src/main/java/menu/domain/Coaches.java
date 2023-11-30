@@ -1,5 +1,9 @@
 package menu.domain;
 
+import static menu.domain.ExceptionMessage.CONTINUITY_SEPARATOR;
+import static menu.domain.ExceptionMessage.DUPLICATE_COACH_NAME;
+import static menu.domain.ExceptionMessage.INVALID_COACH_COUNT;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,7 +18,7 @@ public class Coaches {
     public Coaches(String coachNames) {
         StringSplitter<String> coachNameSplitter = new StringSplitter<>(",");
         PredicateWithExceptionMessage<String> continuitySeparatorDenied = new PredicateWithExceptionMessage<>(
-                s -> !s.contains(",,"), "[ERROR] 구분자를 연속해서 입력할 수 없습니다.");
+                s -> !s.contains(",,"), CONTINUITY_SEPARATOR);
         coachNameSplitter.addBeforeSplitCondition(continuitySeparatorDenied);
         List<String> seperatedCoachNames = coachNameSplitter.split(coachNames, s -> s);
         validateDuplicateCoachNames(seperatedCoachNames);
@@ -25,14 +29,14 @@ public class Coaches {
 
     private static void validateCoachCount(List<String> split) {
         if (split.size() < 2 || split.size() > 5) {
-            throw new IllegalArgumentException("[ERROR] 코치는 최소 2명, 최대 5명 입력할 수 있습니다.");
+            throw new IllegalArgumentException(INVALID_COACH_COUNT);
         }
     }
 
     private static void validateDuplicateCoachNames(List<String> split) {
         Set<String> uniqueSplit = new HashSet<>(split);
         if (split.size() != uniqueSplit.size()) {
-            throw new IllegalArgumentException("[ERROR] 코치이름은 중복될 수 없습니다.");
+            throw new IllegalArgumentException(DUPLICATE_COACH_NAME);
         }
     }
 

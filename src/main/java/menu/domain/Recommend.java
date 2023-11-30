@@ -1,5 +1,7 @@
 package menu.domain;
 
+import static menu.domain.ExceptionMessage.DUPLICATE_MENU_TYPE;
+
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +30,7 @@ public class Recommend {
                 .filter(menuType -> menuType == selectedMenuType)
                 .count();
         if (beforeSelectedCount >= 2) {
-            throw new RuntimeException("다른 카테고리 설정 필요");
+            throw new RuntimeException(DUPLICATE_MENU_TYPE);
         }
         menuTypes.add(selectedMenuType);
     }
