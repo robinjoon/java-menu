@@ -1,5 +1,6 @@
 package menu.domain.coach;
 
+import static menu.constants.ErrorMessage.DUPLICATED_COACH_NAME;
 import static menu.constants.ErrorMessage.CONTAINS_WHITESPACE;
 import static menu.constants.ErrorMessage.INVALID_COACH_NAME_LENGTH;
 import static menu.constants.ErrorMessage.INVALID_COACH_NAME_MAXIMUM_SIZE;
@@ -24,6 +25,7 @@ public class CoachNames {
         for (String name : names) {
             validateEach(name);
         }
+        validateDuplicated(names);
     }
 
     private void validateSize(List<String> names) {
@@ -55,6 +57,12 @@ public class CoachNames {
     private void validateLength(String name) {
         if (name.length() < 2 || name.length() > 4) {
             throw new IllegalArgumentException(formatErrorWithRetry(INVALID_COACH_NAME_LENGTH));
+        }
+    }
+
+    private void validateDuplicated(List<String> names) {
+        if (names.stream().distinct().count() != names.size()) {
+            throw new IllegalArgumentException(formatErrorWithRetry(DUPLICATED_COACH_NAME));
         }
     }
 

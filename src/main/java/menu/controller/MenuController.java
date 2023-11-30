@@ -1,12 +1,8 @@
 package menu.controller;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import menu.domain.Category;
-import menu.domain.Menu;
-import menu.domain.Recommendation;
+import menu.domain.menu.Recommendation;
 import menu.domain.coach.Coach;
 import menu.domain.coach.CoachNames;
 import menu.domain.coach.DislikeMenus;
@@ -35,6 +31,6 @@ public class MenuController {
         }
         recommendation.start(coaches);
         outputView.printResult(recommendation);
-        System.out.println("추천을 완료했습니다");
+        System.out.println("추천을 완료했습니다.");
     }
 }

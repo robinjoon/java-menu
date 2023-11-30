@@ -4,7 +4,7 @@ import static menu.constants.ErrorMessage.INVALID_DISLIKE_MENU_MAXIMUM_SIZE;
 import static menu.constants.ErrorMessage.formatErrorWithRetry;
 
 import java.util.List;
-import menu.domain.Menu;
+import menu.domain.menu.Menu;
 
 public class DislikeMenus {
     private final List<Menu> dislikeMenus;

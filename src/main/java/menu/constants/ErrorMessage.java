@@ -8,6 +8,7 @@ public class ErrorMessage {
     public static final String INVALID_COACH_NAME_MINIMUM_SIZE = "코치는 최소 2명 이상 입력해야 합니다.";
     public static final String INVALID_COACH_NAME_MAXIMUM_SIZE = "코치는 최대 5명 이하로 입력해야 합니다.";
     public static final String INVALID_COACH_NAME_LENGTH = "코치 이름은 최소 2글자, 최대 4글자로 입력해야 합니다.";
+    public static final String DUPLICATED_COACH_NAME = "코치 이름은 중복될 수 없습니다.";
 
     public static final String INVALID_DISLIKE_MENU_MAXIMUM_SIZE = "최대 2개 메뉴까지만 입력할 수 있습니다.";
 

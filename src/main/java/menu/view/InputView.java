@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import menu.domain.Menu;
+import menu.domain.menu.Menu;
 import menu.domain.coach.CoachNames;
 import menu.domain.coach.DislikeMenus;
 
@@ -19,10 +19,10 @@ public class InputView {
     private static final String COMMA_DELIMITER = ",";
 
     public CoachNames readNames() {
-        System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
         while(true) {
+            System.out.println("코치의 이름을 입력해 주세요. (, 로 구분)");
+            String input = Console.readLine();
             try {
-                String input = Console.readLine();
                 validateNames(input);
                 return new CoachNames(List.of(input.split(COMMA_DELIMITER)));
             } catch(IllegalArgumentException e) {
@@ -37,10 +37,10 @@ public class InputView {
     }
 
     public DislikeMenus readDislikeMenus(String name) {
-        System.out.println(name + "(이)가 못 먹는 메뉴를 입력해 주세요.");
         while(true) {
+            System.out.println(name + "(이)가 못 먹는 메뉴를 입력해 주세요.");
+            String input = Console.readLine();
             try {
-                String input = Console.readLine();
                 validateDislikeMenus(input);
                 return createDislikeMenus(List.of(input.split(COMMA_DELIMITER)));
             } catch(IllegalArgumentException e) {

@@ -1,7 +1,6 @@
 package menu.domain.coach;
 
-import java.util.List;
-import menu.domain.Menu;
+import menu.domain.menu.Menu;
 
 public class Coach {
     private final String name;

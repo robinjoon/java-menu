@@ -1,6 +1,6 @@
-package menu.domain;
+package menu.domain.menu;
 
-import static menu.domain.Category.*;
+import static menu.domain.menu.Category.*;
 
 import java.util.Arrays;
 import java.util.List;
