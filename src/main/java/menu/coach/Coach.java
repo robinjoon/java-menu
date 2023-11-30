@@ -13,6 +13,7 @@ public class Coach {
     private List<Menu> hateMenus;
 
     public Coach(String name, String... hateMenus) {
+        validateNameLength(name);
         validateHateMenuCount(hateMenus);
         List<String> hateMenuNames = Arrays.asList(hateMenus);
         validateHateMenusNotContainBlankAndOther(hateMenuNames);
@@ -24,6 +25,12 @@ public class Coach {
                 .toList();
         validateHateMenusNotContainInvalidMenu(collect, hateMenus);
         this.hateMenus = collect;
+    }
+
+    private static void validateNameLength(String name) {
+        if (name.length() < 2 || name.length() > 4) {
+            throw new IllegalArgumentException("[ERROR] 코치이름은 2글자 이상 4글자 이하여야 합니다.");
+        }
     }
 
     private static void validateHateMenusNotContainBlankAndOther(List<String> hateMenuNames) {

@@ -31,4 +31,13 @@ class CoachTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessageContaining("[ERROR] 못 먹는 메뉴 입력에 공백과 메뉴가 동시에 포함될 수 없습니다.");
     }
+
+    @DisplayName("코치 이름 길이 2 미만 혹은 4 초과")
+    @ParameterizedTest
+    @ValueSource(strings = {"a", "aaaaa"})
+    void invalidCoachNameLength(String name) {
+        Assertions.assertThatThrownBy(() -> new Coach(name, "쌈밥"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("[ERROR] 코치이름은 2글자 이상 4글자 이하여야 합니다.");
+    }
 }
