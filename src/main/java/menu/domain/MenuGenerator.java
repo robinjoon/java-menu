@@ -29,7 +29,7 @@ final class MenuGenerator {
     static List<Menu> makeMenus(StringSplitter<Menu> menuStringSplitter, String menus, MenuType menuType) {
         return menuStringSplitter.split(menus, s -> {
             String menuName = s.trim();
-            return new Menu(menuType, menuName);
+            return new Menu(menuName);
         });
     }
 }

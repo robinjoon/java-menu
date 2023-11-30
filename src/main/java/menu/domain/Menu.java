@@ -1,11 +1,9 @@
 package menu.domain;
 
 class Menu {
-    private final MenuType type;
     private final String name;
 
-    Menu(MenuType type, String name) {
-        this.type = type;
+    Menu(String name) {
         this.name = name;
     }
 
