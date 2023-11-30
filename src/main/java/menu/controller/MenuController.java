@@ -1,6 +1,7 @@
 package menu.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import menu.domain.Category;
@@ -17,7 +18,6 @@ public class MenuController {
     private final OutputView outputView;
     private List<Coach> coaches;
     private Recommendation recommendation;
-    private Map<String, DislikeMenus> dislikeMenus;
 
     public MenuController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -32,7 +32,6 @@ public class MenuController {
             DislikeMenus dislike = inputView.readDislikeMenus(name);
             Coach coach = new Coach(name, dislike);
             coaches.add(coach);
-            dislikeMenus.put(name, dislike);
         }
         recommendation.start(coaches);
         outputView.printResult(recommendation);

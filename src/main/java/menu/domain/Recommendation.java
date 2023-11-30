@@ -2,6 +2,7 @@ package menu.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import menu.domain.coach.Coach;
@@ -11,17 +12,24 @@ public class Recommendation {
     Map<Category, Integer> categoryCount;
     Map<String, List<Menu>> recommendedMenu;
 
+    public Recommendation() {
+        categories = new ArrayList<>();
+        recommendedMenu = new HashMap<>();
+        categoryCount = new HashMap<>();
+    }
+
     public void start(List<Coach> coaches) {
         init(coaches);
         for (int i = 0; i < 5; i++) {
             Category category = selectCategory();
             categories.add(category);
             for(Coach coach : coaches) {
+                String coachName = coach.getName();
                 Menu menu = selectMenu(coach, category);
-                if(recommendedMenu.get(coach).contains(menu)) {
+                if(recommendedMenu.get(coachName).contains(menu)) {
                     menu = selectMenu(coach, category);
                 }
-                recommendedMenu.get(coach).add(menu);
+                recommendedMenu.get(coachName).add(menu);
             }
         }
     }
@@ -55,18 +63,20 @@ public class Recommendation {
         return menu;
     }
 
-    private void init(List<Coach> coaches) {
-        categories = new ArrayList<>();
-        coaches.forEach(coach -> {
-            recommendedMenu.put(coach.getName(), new ArrayList<>());
-        });
-    }
-
     public List<Category> getCategories() {
         return categories;
     }
 
     public Map<String, List<Menu>> getRecommendedMenu() {
         return recommendedMenu;
+    }
+
+    private void init(List<Coach> coaches) {
+        for (Coach coach : coaches) {
+            recommendedMenu.put(coach.getName(), new ArrayList<>());
+        }
+        for (Category category : Category.values()) {
+            categoryCount.put(category, 0);
+        }
     }
 }
