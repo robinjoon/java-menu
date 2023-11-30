@@ -1,15 +1,14 @@
 package menu;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 
 import static menu.Message.*;
 public class OutputView {
 
     public static void printMessage(String msg){ System.out.println(msg);}
 
-    public static void printResults(HashMap<String,List<String>> results,List<String> categories){
+    public static void printResults(List<List<String>> results,List<String> categories){
         printMessage(OUTPUT_RESULT_PROMPT);
         printMessage(WEEKDAYS_PROMPT);
         printCategory(categories);
@@ -27,17 +26,17 @@ public class OutputView {
         ));
     }
 
-    private static void printMenu(HashMap<String, List<String>> results){
-        for(Map.Entry entry : results.entrySet()){
-            List<String> menus = (List<String>) entry.getValue();
+    private static void printMenu(List<List<String>> results){
+        for(List<String> result : results){
             printMessage(String.format(MENU_RECOMMEND_RESULT_FORMAT,
-                    entry.getKey(),
-                    menus.get(0),
-                    menus.get(1),
-                    menus.get(2),
-                    menus.get(3),
-                    menus.get(4)
+                    result.get(0),
+                    result.get(1),
+                    result.get(2),
+                    result.get(3),
+                    result.get(4),
+                    result.get(5)
             ));
+            System.lineSeparator();
         }
     }
 }
