@@ -27,7 +27,7 @@ public class Recommend {
         long beforeSelectedCount = menuTypes.stream()
                 .filter(menuType -> menuType == selectedMenuType)
                 .count();
-        if (beforeSelectedCount > 2) {
+        if (beforeSelectedCount >= 2) {
             throw new RuntimeException("다른 카테고리 설정 필요");
         }
         menuTypes.add(selectedMenuType);
