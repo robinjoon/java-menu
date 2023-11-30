@@ -65,4 +65,8 @@ public class Coach {
             throw new IllegalArgumentException("[ERROR] 코치가 못 먹는 음식은 0개 이상 2개 이하여야 합니다.");
         }
     }
+
+    public List<Menu> getHateMenus() {
+        return hateMenus;
+    }
 }

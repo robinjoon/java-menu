@@ -28,6 +28,10 @@ public class Coaches {
         }
     }
 
+    public List<Coach> getCoaches() {
+        return coaches;
+    }
+
     public void addHateMenus(String coachName, String hateMenus) {
         coaches.add(new Coach(coachName, hateMenus));
     }
