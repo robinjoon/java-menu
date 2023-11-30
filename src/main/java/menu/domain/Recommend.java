@@ -59,7 +59,7 @@ public class Recommend {
         return selectedMenuName;
     }
 
-    private boolean isInvalidSelectedMenuName(Coach coach, String selectedMenuName) {
+    boolean isInvalidSelectedMenuName(Coach coach, String selectedMenuName) {
         List<String> hateMenus = coach.getHateMenus().stream()
                 .map(Menu::getName)
                 .toList();

@@ -21,4 +21,17 @@ class RecommendTest {
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("다른 카테고리 설정 필요");
     }
+
+    @DisplayName("못 먹는 음식이 추천되지 않는지 확인")
+    @Test
+    void hateMenuRecommend() {
+        Coaches coaches = new Coaches("aa,bb,cc");
+        coaches.addHateMenus("aa", "깐풍기");
+        Recommend recommend = new Recommend(coaches);
+        Coach aa = coaches.getCoaches().stream()
+                .filter(coach -> coach.getName().equals("aa"))
+                .findFirst().orElseThrow();
+        Assertions.assertThat(recommend.isInvalidSelectedMenuName(aa, "깐풍기"))
+                .isTrue();
+    }
 }
